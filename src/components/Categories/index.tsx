@@ -10,20 +10,9 @@ export function Categories() {
   const [selectedCategory, setSelectedCategory] = useState('');
 
   function handleSelectCategory(categoryId: string) {
-    // Selecionar várias categorias
-    // const addCategory = () => setSelectedCategories(selectedCategories => [...selectedCategories, categoryId]);
-    // const removeCategory = () => setSelectedCategories(selectedCategories.filter(item => item !== categoryId));
-    // !isSelectedCategory(categoryId) ? addCategory() : removeCategory();
-
-    // Selecionar apenas uma categorias
     const category = selectedCategory === categoryId ? '' : categoryId;
     setSelectedCategory(category);
   }
-
-  // Verifica se a categoria está selecionada
-  // fun gory(categoryId: string): boolean{
-  //   return !!selectedCategories.find((item) => item === categoryId);
-  // }
 
   return (
     <>
@@ -34,11 +23,7 @@ export function Categories() {
         contentContainerStyle={{ paddingRight: 24 }}
         keyExtractor={category => category._id}
         renderItem={({item: category}) => {
-          // Condição para dar foco a categoria selecionada
           const isSelected = selectedCategory === category._id;
-
-          // Condição para dar foco as categorias selecionadas
-          // const isSelected = isSelectedCategory(category._id);
 
           return (
             <Category key={category._id} onPress={() => handleSelectCategory(category._id)} >
